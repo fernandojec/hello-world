@@ -24,21 +24,49 @@ func TestGenerateWord(t *testing.T) {
 			t.Errorf("GenerateWord() = %v, want %v", got, "4")
 		}
 	})
-	// type args struct {
-	// 	n int
-	// }
-	// tests := []struct {
-	// 	name string
-	// 	args args
-	// 	want string
-	// }{
-	// 	// TODO: Add test cases.
-	// }
-	// for _, tt := range tests {
-	// 	t.Run(tt.name, func(t *testing.T) {
-	// 		if got := GenerateWord(tt.args.n); got != tt.want {
-	// 			t.Errorf("GenerateWord() = %v, want %v", got, tt.want)
-	// 		}
-	// 	})
-	// }
+
+	// auto generate
+	type args struct {
+		n int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Should Return Fizz",
+			args: args{
+				n: 3,
+			},
+			want: "Fizz",
+		},
+		{
+			name: "Should Return Buzz",
+			args: args{
+				n: 5,
+			},
+			want: "Buzz",
+		}, {
+			name: "Should Return FizzBuzz",
+			args: args{
+				n: 15,
+			},
+			want: "FizzBuzz",
+		}, {
+			name: "Should Return 4",
+			args: args{
+				n: 4,
+			},
+			want: "4",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GenerateWord(tt.args.n); got != tt.want {
+				t.Errorf("GenerateWord() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
