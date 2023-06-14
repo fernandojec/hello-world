@@ -1,6 +1,10 @@
 package main
 
-import "github.com/fernandojec/hello-world/struct/user"
+import (
+	"fmt"
+
+	"github.com/fernandojec/hello-world/struct/user"
+)
 
 func main() {
 	user.Register(user.User{
@@ -19,5 +23,8 @@ func main() {
 		Password: "1232",
 	})
 
-	user.Get()
+	for _, v := range user.Get() {
+		fmt.Printf("name: %s\nemail: %s\npassword: %s\n\n", v.Name, v.Email, v.Password)
+	}
+
 }
